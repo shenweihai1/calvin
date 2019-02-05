@@ -18,7 +18,7 @@ STORE  := ../db/storage
 # Next, we define the external libraries we use and their directories
 ZEROMQ := $(EXTDIR)/zeromq
 PROTOB := $(EXTDIR)/protobuf
-GTEST  := $(EXTDIR)/googletest/googletest
+GTEST  := $(EXTDIR)/googletest
 ZOOKPR := $(EXTDIR)/zookeeper
 
 # Executable for protocol buffers
@@ -51,7 +51,7 @@ CXXFLAGS += -Wall -Werror
 
 LDFLAGS := -lrt -lpthread $(PG) \
            -lprotobuf -L$(PROTOB)/src/.libs \
-           -lgtest -L$(GTEST)/lib \
+           -lgtest -L$(GTEST) \
            -lzookeeper_mt -L$(ZOOKPR)/.libs
 ZMQLDFLAGS := -lzmq -L$(ZEROMQ)/src/.libs
 
