@@ -1,38 +1,45 @@
 #!/bin/bash
 
+set -e
+
+rm -rf ext
+
 # requires: autoconf, libtool, libreadline-dev
 
-mkdir ext
+mkdir -p ext
 cd ext
 
 #zookeeper
-wget http://apache.mirrors.tds.net/zookeeper/current/zookeeper-3.4.6.tar.gz
-tar xzf zookeeper-3.4.6.tar.gz
-rm zookeeper-3.4.6.tar.gz
-mv zookeeper-3.4.6/src/c zookeeper
-rm -fr zookeeper-3.4.6
+FN=zookeeper-3.4.12.tar.gz
+FV=zookeeper-3.4.12
+wget http://apache.mirrors.tds.net/zookeeper/current/$FN
+tar xzf $FN
+rm $FN
+mv $FV/src/c zookeeper
+rm -fr $FV
 cd zookeeper
 ./configure --prefix=$PWD
 make -j
 cd ..
 
 # protobuf
-svn checkout http://protobuf.googlecode.com/svn/trunk/ protobuf
+git clone git@github.com:protocolbuffers/protobuf.git
 cd protobuf
+git checkout v3.6.1
 ./autogen.sh
 ./configure --prefix=$PWD
 make -j
 cd ..
 
 # googletest
-wget http://googletest.googlecode.com/files/gtest-1.6.0.zip
-unzip gtest-1.6.0.zip
-rm gtest-1.6.0.zip
-mv gtest-1.6.0 googletest
-cd googletest
-./configure --prefix=$PWD
+git clone git@github.com:google/googletest.git
+cd googletest/googletest
+git checkout release-1.8.1
+mkdir mybuild
+cd mybuild
+cmake ..
 make -j
-cd ..
+cd ../../..
 
 
 # zeromq
@@ -42,10 +49,12 @@ rm zeromq-2.1.11.tar.gz
 mv zeromq-2.1.11 zeromq
 cd zeromq
 ./autogen.sh
-./configure --prefix=$PWD
+mkdir build
+cd build
+../configure --prefix=$PWD
 make -j
 make install
-cd ..
+cd ../..
 
 
 
