@@ -53,7 +53,7 @@ LDFLAGS := -lrt -lpthread $(PG) \
            -lprotobuf -L$(PROTOB)/src/.libs \
            -lgtest -L$(GTEST) \
            -lzookeeper_mt -L$(ZOOKPR)/.libs
-ZMQLDFLAGS := -lzmq -L$(ZEROMQ)/src/.libs
+ZMQLDFLAGS := -lzmq -L$(ZEROMQ)/build/lib
 
 # Lists that the */Makefile.inc makefile fragments will add to
 OBJDIRS :=
