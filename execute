@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt-get install gcc-6 g++-6 cmake
+sudo rm /usr/bin/{gcc,g++}
+sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
+sudo ln -s /usr/bin/g++-6 /usr/bin/g++
+git clone git@github.com:ccding/calvin.git
+cd calvin/
+./install-ext
+cp -r src_calvin src
+cd src
+make
+cd ..
+LD_LIBRARY_PATH=/users/coding/calvin/ext/protobuf/src/.libs/:/users/coding/calvin/ext/zookeeper/.libs/:/users/coding/calvin/ext/zeromq/build/lib ./bin/deployment/db 0 m 0
