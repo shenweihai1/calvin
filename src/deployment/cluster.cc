@@ -2,6 +2,7 @@
 // Author: Kun Ren (kun.ren@yale.edu)
 // Author: Alexander Thomson (thomson@cs.yale.edu)
 
+#include <iostream>
 #include <sys/types.h>
 #include <sys/select.h>
 #include <sys/stat.h>
@@ -14,6 +15,7 @@
 #include <cerrno>
 #include <csignal>
 #include <ctime>
+#include <sstream>
 
 #include <map>
 #include <vector>
@@ -23,6 +25,7 @@
 
 using std::map;
 using std::vector;
+using namespace std;
 
 void ConstructDBArgs(int argc, char* argv[], int arg_begin);
 bool CheckExecutable(const char* exec);
@@ -42,7 +45,7 @@ const char remote_exec[] = "ssh";
 // This must be used when ssh is run in the background.
 const char remote_opt1[] = "-nT";
 // remote_opt2 = address
-const char remote_opt3_fmt[] = "cd %s; %s %d %s";
+const char remote_opt3_fmt[] = "bash ~/calvin/init_zoo.sh; cd %s; export LD_LIBRARY_PATH=:/home/azureuser/calvin/ext/googletest/lib/.libs:/home/azureuser/calvin/ext/protobuf/src/.libs:/home/azureuser/calvin/ext/zeromq/src/.libs:/home/azureuser/calvin/ext/zookeeper/.libs;%s %d %s > ~/calvin/s.log 2>&1" ;
 const char remote_quite_opt3_fmt[] = "cd %s; %s %d %s > /dev/null 2>&1";
 const char remote_valgrind_opt3_fmt[] = "cd %s; valgrind %s %d %s";
 // sprintf(remote_opt3, remote_opt3_fmt,
@@ -63,6 +66,9 @@ vector<int> children_pids;
 volatile bool end_cluster;
 
 int main(int argc, char* argv[]) {
+#ifdef PAXOS
+  std::cout << "using Paxos\n";
+#endif
   int arg_begin;
 
   const char* config_file = default_input_config_filename;
@@ -102,6 +108,7 @@ int main(int argc, char* argv[]) {
   // filling in db_args from argv
   ConstructDBArgs(argc, argv, arg_begin);
 
+  std::cout << "config_file: " << config_file << std::endl;
   // get a config obj
   Configuration config(-1, config_file);
   cwd = getcwd(NULL, 0);
@@ -205,9 +212,16 @@ void DeployOne(int nodeID,
   const char* remote_opt2 = node->host.c_str();
 
   char copy_config[1024];
+  std::stringstream ss;
+  ss << "scp -i ~/.ssh/id_rsa -rp deploy-run.conf %s:" << cwd << "/deploy-run.conf";
+  std::string s = ss.str();
   snprintf(copy_config, sizeof(copy_config),
-           "scp -rp deploy-run.conf %s:db3/deploy-run.conf",
+           s.c_str(),
            node->host.c_str());
+  //snprintf(copy_config, sizeof(copy_config),
+  //         "cd ~/calvin; scp -rp deploy-run.conf %s:db3/deploy-run.conf",
+  //         node->host.c_str());
+  std::cout << "copy cmd: " << copy_config << std::endl;
   system(copy_config);
 
   char remote_opt3[1024];
@@ -231,6 +245,7 @@ void DeployOne(int nodeID,
     dup2(pipefd[1], 1);
     dup2(pipefd[1], 2);
     close(pipefd[1]);
+    std::cout << "remote_opt1: " << remote_opt1 << ", opt2: " << remote_opt2 << ", opt3: " << remote_opt3 << std::endl;
     execlp("ssh", "ssh", remote_opt1, remote_opt2, remote_opt3, NULL);
     printf("Node %d spawning failed\n", nodeID);
     exit(-1);

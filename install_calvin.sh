@@ -49,4 +49,5 @@ cd src
 make
 cd ..
 
+# /ext/protobuf/src/.libs/
 LD_LIBRARY_PATH=/home/azureuser/calvin/ext/protobuf/src/.libs/:/home/azureuser/calvin/ext/zookeeper/.libs/:/home/azureuser/calvin/ext/zeromq/build/lib

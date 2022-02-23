@@ -3,6 +3,7 @@
 // The Paxos object allows batches to be registered with a running zookeeper
 // instance, inserting them into a globally consistent batch order.
 
+#include <iostream>
 #include "paxos/paxos.h"
 
 #include <fstream>
@@ -12,12 +13,15 @@
 using std::ifstream;
 using std::pair;
 using std::vector;
+using namespace std;
 
 Paxos::Paxos(const string& zookeeper_config_file, bool reader) {
+  //std::cout << "zookeeper_config_file: " << zookeeper_config_file << std::endl;
   ifstream in(zookeeper_config_file.c_str());
   string s, port, ip, connection_string, timeout;
   // Get the connection string(ip and port) from the config file.
   while (getline(in, s)) {
+    //std::cout << "zookeeper_config_file - line: " << s << std::endl;
     if (s.substr(0, 10) == "clientPort") {
       int pos1 = s.find('=');
       int pos2 = s.find('\0');
@@ -42,11 +46,14 @@ Paxos::Paxos(const string& zookeeper_config_file, bool reader) {
   }
 
   // Connect to the zookeeper.
+  //std::cout << "connection_string: " << connection_string << std::endl;
   zh_ = zookeeper_init(connection_string.c_str(), NULL,
                        atoi(timeout.c_str()), 0, NULL, 0);
   if (zh_ == NULL) {
     printf("Connection to zookeeper failed.\n");
     return;
+  } else {
+    printf("Succeed in connecting to zookeeper.\n");
   }
 
   // Verify that whether the root node have been created,
@@ -177,7 +184,8 @@ void Paxos::acreate_completion(int rc, const char *name, const void * data) {
 
 // This function will automatically start zookeeper server based on the
 // zookeeper config file(generate ssh commands and execute them).
-void StartZookeeper(const string& zookeeper_config_file) {
+void Paxos::StartZookeeper(const string& zookeeper_config_file) {
+  std::cout << "start zoo:XXXXXXXXXXXX\n";
   vector<string> zookeepers;
   string line;
   // Read zookeeper config file.
@@ -193,7 +201,7 @@ void StartZookeeper(const string& zookeeper_config_file) {
   for (unsigned int i = 0; i< zookeepers.size(); i++) {
     // Generate the ssh command.
     string ssh_command = "ssh " + zookeepers[i] +
-                         " /tmp/kr358/zookeeper/zookeeper-3.3.3/" +
+                         " /home/azureuser/zookeeper-3.4.12/" +
                          "bin/zkServer.sh start > zookeeper_log &";
     // Run the ssh command.
     system(ssh_command.c_str());
@@ -204,7 +212,8 @@ void StartZookeeper(const string& zookeeper_config_file) {
 
 // This function will automatically stop zookeeper server based on the
 // zookeeper config file(generate ssh commands and execute them).
-void StopZookeeper(const string& zookeeper_config_file) {
+void Paxos::StopZookeeper(const string& zookeeper_config_file) {
+  std::cout << "stop zoo: XXXXXXXXXXXXXXXXX\n";
   vector <string> zookeepers;
   string line , port, ssh_command;
   // Read zookeeper config file.
@@ -223,14 +232,14 @@ void StopZookeeper(const string& zookeeper_config_file) {
     }
   }
   ssh_command = "ssh " + zookeepers[0] +
-                " /tmp/kr358/zookeeper/zookeeper-3.3.3/bin/zkCli.sh -server "
-                + zookeepers[0] + ":" + port + " delete /root > zookeeper_log";
+                " /home/azureuser/zookeeper-3.4.12/bin/zkCli.sh -server "
+                + zookeepers[0] + ":" + port + " rmr /root > zookeeper_log";
   system(ssh_command.c_str());
   sleep(2);
   for (unsigned int i = 0; i< zookeepers.size(); i++) {
     // Generate the ssh command.
-    ssh_command = "ssh " + zookeepers[i] + " /tmp/kr358/zookeeper/"
-                  + "zookeeper-3.3.3/bin/zkServer.sh stop > zookeeper_log &";
+    ssh_command = "ssh " + zookeepers[i] + " /home/azureuser/zookeeper-3.4.12"
+                  + "/bin/zkServer.sh stop > zookeeper_log &";
     system(ssh_command.c_str());
   }
 }

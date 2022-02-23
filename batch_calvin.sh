@@ -9,6 +9,7 @@ clients=(
 )
 
 cmd1=""
+# ps aux|grep 'db'|awk '{print $2}'|xargs sudo kill -9
 cmd2=""
 cmd3=""
 cmd4=""

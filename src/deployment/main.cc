@@ -7,6 +7,8 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include "paxos/paxos.h"
+
 #include "applications/microbenchmark.h"
 #include "applications/tpcc.h"
 #include "common/configuration.h"
@@ -40,6 +42,7 @@ class MClient : public Client {
   MClient(Configuration* config, int mp)
       : microbenchmark(config->all_nodes.size(), HOT), config_(config),
         percent_mp_(mp) {
+      std::cout << "nodes size: " << config->all_nodes.size() << std::endl;
   }
   virtual ~MClient() {}
   virtual void GetTxn(TxnProto** txn, int txn_id) {
@@ -106,9 +109,9 @@ class TClient : public Client {
 };
 
 void stop(int sig) {
-// #ifdef PAXOS
-//  StopZookeeper(ZOOKEEPER_CONF);
-// #endif
+#ifdef PAXOS
+ //Paxos::StopZookeeper(ZOOKEEPER_CONF);
+#endif
   exit(sig);
 }
 
@@ -129,6 +132,7 @@ int main(int argc, char** argv) {
 
   // Build this node's configuration object.
   Configuration config(StringToInt(argv[1]), "deploy-run.conf");
+  //Configuration config(StringToInt(argv[1]), "local-run.conf");
 
   // Build connection context and start multiplexer thread running.
   ConnectionMultiplexer multiplexer(&config);
@@ -138,9 +142,9 @@ int main(int argc, char** argv) {
       reinterpret_cast<Client*>(new MClient(&config, atoi(argv[3]))) :
       reinterpret_cast<Client*>(new TClient(&config, atoi(argv[3])));
 
-// #ifdef PAXOS
-//  StartZookeeper(ZOOKEEPER_CONF);
-// #endif
+#ifdef PAXOS
+  Paxos::StartZookeeper(ZOOKEEPER_CONF);
+#endif
 pthread_mutex_init(&mutex_, NULL);
 pthread_mutex_init(&mutex_for_item, NULL);
 involed_customers = new vector<Key>;
@@ -175,7 +179,7 @@ storage->Initmutex();
                                      new TPCC());
   }
 
-  Spin(180);
+  Spin(30);
   return 0;
 }
 

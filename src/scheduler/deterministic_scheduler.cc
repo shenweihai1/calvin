@@ -77,14 +77,14 @@ DeterministicScheduler::DeterministicScheduler(Configuration* conf,
   Spin(1);
 
   // start lock manager thread
-  cpu_set_t cpuset;
+  //cpu_set_t cpuset;
   pthread_attr_t attr1;
   pthread_attr_init(&attr1);
   //pthread_attr_setdetachstate(&attr1, PTHREAD_CREATE_DETACHED);
   
-  CPU_ZERO(&cpuset);
-  CPU_SET(7, &cpuset);
-  pthread_attr_setaffinity_np(&attr1, sizeof(cpu_set_t), &cpuset);
+  //CPU_ZERO(&cpuset);
+  //CPU_SET(7, &cpuset);
+  //pthread_attr_setaffinity_np(&attr1, sizeof(cpu_set_t), &cpuset);
   pthread_create(&lock_manager_thread_, &attr1, LockManagerThread,
                  reinterpret_cast<void*>(this));
 
@@ -97,12 +97,12 @@ DeterministicScheduler::DeterministicScheduler(Configuration* conf,
 
     pthread_attr_t attr;
     pthread_attr_init(&attr);
-    CPU_ZERO(&cpuset);
-    if (i == 0 || i == 1)
-      CPU_SET(i, &cpuset);
-    else
-      CPU_SET(i+2, &cpuset);
-    pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &cpuset);
+    //CPU_ZERO(&cpuset);
+    //if (i == 0 || i == 1)
+    //  CPU_SET(i, &cpuset);
+    //else
+    //  CPU_SET(i+2, &cpuset);
+    //pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &cpuset);
 
     pthread_create(&(threads_[i]), &attr, RunWorkerThread,
                    reinterpret_cast<void*>(
@@ -217,6 +217,8 @@ void* DeterministicScheduler::LockManagerThread(void* arg) {
 
   // Run main loop.
   MessageProto message;
+  int random_variable = std::rand();
+  std::cout << "OneXXX: " << random_variable << std::endl;
   MessageProto* batch_message = NULL;
   int txns = 0;
   double time = GetTime();
@@ -286,7 +288,8 @@ void* DeterministicScheduler::LockManagerThread(void* arg) {
                 << " txns/sec, "
                 //<< test<< " for drop speed , " 
                 << executing_txns << " executing, "
-                << pending_txns << " pending\n" << std::flush;
+                << pending_txns << " pending, random: " 
+                << random_variable << "\n" << std::flush;
       // Reset txn count.
       time = GetTime();
       txns = 0;

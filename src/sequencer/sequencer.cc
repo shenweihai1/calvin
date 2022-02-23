@@ -63,12 +63,12 @@ pthread_attr_t attr_writer;
 pthread_attr_init(&attr_writer);
 //pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 
-CPU_ZERO(&cpuset);
+//CPU_ZERO(&cpuset);
 //CPU_SET(4, &cpuset);
 //CPU_SET(5, &cpuset);
-CPU_SET(6, &cpuset);
+//CPU_SET(6, &cpuset);
 //CPU_SET(7, &cpuset);
-pthread_attr_setaffinity_np(&attr_writer, sizeof(cpu_set_t), &cpuset);
+//pthread_attr_setaffinity_np(&attr_writer, sizeof(cpu_set_t), &cpuset);
 
 
 
@@ -79,10 +79,10 @@ CPU_ZERO(&cpuset);
 //CPU_SET(4, &cpuset);
 //CPU_SET(5, &cpuset);
 //CPU_SET(6, &cpuset);
-CPU_SET(2, &cpuset);
+//CPU_SET(2, &cpuset);
 pthread_attr_t attr_reader;
 pthread_attr_init(&attr_reader);
-pthread_attr_setaffinity_np(&attr_reader, sizeof(cpu_set_t), &cpuset);
+//pthread_attr_setaffinity_np(&attr_reader, sizeof(cpu_set_t), &cpuset);
 
   pthread_create(&reader_thread_, &attr_reader, RunSequencerReader,
       reinterpret_cast<void*>(this));
@@ -129,6 +129,7 @@ double PrefetchAll(Storage* storage, TxnProto* txn) {
 #endif
 
 void Sequencer::RunWriter() {
+  std::cout << "XXXXXX: RunWriter\n";
   Spin(1);
 
 #ifdef PAXOS
@@ -214,6 +215,7 @@ void Sequencer::RunWriter() {
 }
 
 void Sequencer::RunReader() {
+  std::cout << "XXXXXX: RunReader\n";
   Spin(1);
 #ifdef PAXOS
   Paxos paxos(ZOOKEEPER_CONF, true);

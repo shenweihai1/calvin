@@ -17,7 +17,7 @@ using std::map;
 using std::string;
 
 // The path of zookeeper config file
-#define ZOOKEEPER_CONF "paxos/zookeeper.conf"
+#define ZOOKEEPER_CONF "/home/azureuser/calvin/src/paxos/zookeeper.conf"
 
 // Number of concurrently get batches from the zookeeper servers
 // at any given time.
@@ -51,6 +51,9 @@ class Paxos {
   // not immediately known, GetNextBatchBlocking blocks until it is received.
   void GetNextBatchBlocking(string* batch_data);
 
+  static void StartZookeeper(const string& zookeeper_config_file) ;
+  static void StopZookeeper(const string& zookeeper_config_file) ;
+
  private:
   // The zookeeper handle obtained by a call to zookeeper_init.
   zhandle_t *zh_;
@@ -75,4 +78,5 @@ class Paxos {
   // at the end of zoo_acreate function.
   static void acreate_completion(int rc, const char *name, const void * data);
 };
+
 #endif  // _DB_PAXOS_PAXOS_H_

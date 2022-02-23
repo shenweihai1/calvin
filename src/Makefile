@@ -34,7 +34,7 @@ V = @
 
 # Set the compiler and compile-time loaded libraries
 CXX           := g++-6
-LDLIBRARYPATH := LD_LIBRARY_PATH=$(ZEROMQ)/src/.libs:$(PROTOB)/src/.libs:$(GTEST)/lib/.libs:$(ZOOKPR)/.libs
+LDLIBRARYPATH := LD_LIBRARY_PATH=$(ZEROMQ)/build/lib:$(PROTOB)/src/.libs:$(GTEST):$(ZOOKPR)/.libs
 
 # For profiling (with gprof), this line should read 'PG = -pg'
 # For fast execution, this line should read 'PG ='.
@@ -42,12 +42,14 @@ PG =
 
 # Set the flags for C++ to compile with (namely where to look for external
 # libraries) and the linker libraries (again to look in the ext/ library)
-CXXFLAGS := -g -MD $(PG) -I$(SRCDIR) -I$(OBJDIR) \
+CXXFLAGS := -std=c++11 -g -MD $(PG) -I$(SRCDIR) -I$(OBJDIR) \
             -I$(ZEROMQ)/include \
             -I$(PROTOB)/src \
             -I$(GTEST)/include \
             -I$(ZOOKPR)/include -I$(ZOOKPR)/generated
 CXXFLAGS += -Wall -Werror
+CXXFLAGS += -DPAXOS
+CXXFLAGS += -DVERBOSE_SEQUENCER
 
 LDFLAGS := -lrt -lpthread $(PG) \
            -lprotobuf -L$(PROTOB)/src/.libs \

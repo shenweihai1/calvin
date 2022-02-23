@@ -1,56 +1,51 @@
 #!/bin/bash
 
-set -e
-
-rm -rf ext
-
 # requires: autoconf, libtool, libreadline-dev
 
-mkdir -p ext
+mkdir ext
 cd ext
 
 #zookeeper
-FN=zookeeper-3.4.12.tar.gz
-FV=zookeeper-3.4.12
-#wget http://apache.mirrors.tds.net/zookeeper/current/$FN
-wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.12/$FN
-tar xzf $FN
-rm $FN
-mv $FV/src/c zookeeper
-rm -fr $FV
+wget http://apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+tar xzf zookeeper-3.4.6.tar.gz
+rm zookeeper-3.4.6.tar.gz
+mv zookeeper-3.4.6/src/c zookeeper
+rm -fr zookeeper-3.4.6
 cd zookeeper
 ./configure --prefix=$PWD
-make -j
+make -j7
 cd ..
 
 # protobuf
-git clone https://github.com/protocolbuffers/protobuf.git
+git clone https://github.com/google/protobuf.git
 cd protobuf
-git checkout v3.6.1
 ./autogen.sh
 ./configure --prefix=$PWD
-make -j
+make -j7
 cd ..
 
 # googletest
-git clone https://github.com/google/googletest.git
+wget http://pkgs.fedoraproject.org/repo/pkgs/gtest/gtest-1.6.0.zip/4577b49f2973c90bf9ba69aa8166b786/gtest-1.6.0.zip 
+unzip gtest-1.6.0.zip
+rm gtest-1.6.0.zip
+mv gtest-1.6.0 googletest
 cd googletest
-git checkout release-1.6.0
-cmake .
-make -j
+./configure --prefix=$PWD
+make -j7
 cd ..
 
+
 # zeromq
-wget http://download.zeromq.org/zeromq-2.1.11.tar.gz
+wget https://archive.org/download/zeromq_2.1.11/zeromq-2.1.11.tar.gz 
 tar xzf zeromq-2.1.11.tar.gz
 rm zeromq-2.1.11.tar.gz
 mv zeromq-2.1.11 zeromq
 cd zeromq
 ./autogen.sh
-mkdir build
-cd build
-../configure --prefix=$PWD
-make -j
+./configure --prefix=$PWD
+make -j7
 make install
-cd ../..
+cd ..
+
+
 

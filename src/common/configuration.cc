@@ -2,6 +2,7 @@
 // Author: Alexander Thomson (thomson@cs.yale.edu)
 // Author: Kun Ren (kun@cs.yale.edu)
 
+#include <iostream>
 #include "common/configuration.h"
 
 #include <netdb.h>
@@ -16,6 +17,7 @@
 #include "common/utils.h"
 
 using std::string;
+using namespace std;
 
 Configuration::Configuration(int node_id, const string& filename)
     : this_node_id(node_id) {
@@ -38,6 +40,7 @@ bool Configuration::WriteToFile(const string& filename) const {
   for (map<int, Node*>::const_iterator it = all_nodes.begin();
        it != all_nodes.end(); ++it) {
     Node* node = it->second;
+    std::cout << "write back to configuration, replica_id:" << node->replica_id << "\n";
     fprintf(fp, "node%d=%d:%d:%d:%s:%d\n",
             it->first,
             node->replica_id,
