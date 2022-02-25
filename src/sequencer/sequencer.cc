@@ -6,6 +6,7 @@
 //
 // TODO(scw): replace iostream with cstdio
 
+#include <iostream>
 #include "sequencer/sequencer.h"
 
 #include <iostream>
@@ -28,6 +29,7 @@ using std::map;
 using std::multimap;
 using std::set;
 using std::queue;
+using namespace std;
 
 #ifdef LATENCY_TEST
 double sequencer_recv[SAMPLES];
@@ -174,8 +176,6 @@ void Sequencer::RunWriter() {
     batch.set_batch_number(batch_number);
     batch.clear_data();
 
-
-
     // Collect txn requests for this epoch.
     int txn_id_offset = 0;
     while (!deconstructor_invoked_ &&
@@ -185,6 +185,11 @@ void Sequencer::RunWriter() {
         TxnProto* txn;
         string txn_string;
         client_->GetTxn(&txn, batch_number * MAX_BATCH_SIZE + txn_id_offset);
+        if (txn->txn_id() % 1000 == 0){
+          long st = (long)(GetTime() * 1000000);
+          txn->set_start_time(st);
+          //std::cout << "XXXXX: tid - write into Paxos: " << txn->txn_id() << ", time: " << GetTime() << std::endl;
+        }
         
         // Find a bad transaction
         if(txn->txn_id() == -1) {
@@ -203,6 +208,7 @@ void Sequencer::RunWriter() {
     // Send this epoch's requests to Paxos service.
     batch.SerializeToString(&batch_string);
 #ifdef PAXOS
+    //std::cout << "send it to Paxos\n";
     paxos.SubmitBatch(batch_string);
 #else
     pthread_mutex_lock(&mutex_);
@@ -298,7 +304,10 @@ void Sequencer::RunReader() {
         batches[*it].add_data(txn_data);
 
       txn_count++;
+      //if (txn.txn_id() % 1000 == 0) std::cout << "XXXXX-read from Paxos: tid: " << txn.txn_id() << ", time: " << GetTime() << std::endl;
     }
+
+
 
     // Send this epoch's requests to all schedulers.
     for (map<int, MessageProto>::iterator it = batches.begin();

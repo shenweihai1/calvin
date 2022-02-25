@@ -59,14 +59,14 @@ TxnProto* Microbenchmark::MicroTxnSP(int64 txn_id, int part) {
   txn->set_txn_type(MICROTXN_SP);
 
   // Add one hot key to read/write set.
-  int hotkey = part + nparts * (rand() % hot_records);
-  txn->add_read_write_set(IntToString(hotkey));
+  //int hotkey = part + nparts * (rand() % hot_records);
+  //txn->add_read_write_set(IntToString(hotkey));
 
   // Insert set of kRWSetSize - 1 random cold keys from specified partition into
   // read/write set.
   set<int> keys;
   GetRandomKeys(&keys,
-                kRWSetSize - 1,
+                kRWSetSize,
                 nparts * hot_records,
                 nparts * kDBSize,
                 part);

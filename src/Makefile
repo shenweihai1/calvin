@@ -49,6 +49,7 @@ CXXFLAGS := -std=c++11 -g -MD $(PG) -I$(SRCDIR) -I$(OBJDIR) \
             -I$(ZOOKPR)/include -I$(ZOOKPR)/generated
 CXXFLAGS += -Wall -Werror
 CXXFLAGS += -DPAXOS
+#CXXFLAGS += -DLATENCY_TEST
 CXXFLAGS += -DVERBOSE_SEQUENCER
 
 LDFLAGS := -lrt -lpthread $(PG) \

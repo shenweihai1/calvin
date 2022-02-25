@@ -96,6 +96,7 @@ void Configuration::ProcessConfigLine(char key[], char value[]) {
     node->cores        = atoi(strtok_r(NULL, ":", &tok));
     const char* host   =      strtok_r(NULL, ":", &tok);
     node->port         = atoi(strtok_r(NULL, ":", &tok));
+    std::cout << "XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: " << node->node_id << ", replica_id: " << node->replica_id << ", par_id: " << node->partition_id << std::endl;
 
     // Translate hostnames to IP addresses.
     string ip;

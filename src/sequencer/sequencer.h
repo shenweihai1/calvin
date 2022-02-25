@@ -15,7 +15,10 @@
 //#define PREFETCHING
 #define COLD_CUTOFF 990000
 
-#define MAX_BATCH_SIZE 3600
+// 200 => 200 * 100 
+// 1200 => 1200 * 100
+// 1336 54
+#define MAX_BATCH_SIZE 200
 
 #define SAMPLES 100000
 #define SAMPLE_RATE 999

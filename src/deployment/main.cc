@@ -151,6 +151,7 @@ involed_customers = new vector<Key>;
 
   Storage* storage;
   if (!useFetching) {
+    std::cout << "using a simple in-memory map storage \n";
     storage = new SimpleStorage();
   } else {
     storage = FetchingStorage::BuildStorage();

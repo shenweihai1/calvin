@@ -226,6 +226,7 @@ void* DeterministicScheduler::LockManagerThread(void* arg) {
   int pending_txns = 0;
   int batch_offset = 0;
   int batch_number = 0;
+  std::vector<long> latencies;
 //int test = 0;
   while (true) {
     TxnProto* done_txn;
@@ -235,8 +236,13 @@ void* DeterministicScheduler::LockManagerThread(void* arg) {
       scheduler->lock_manager_->Release(done_txn);
       executing_txns--;
 
-      if(done_txn->writers_size() == 0 || rand() % done_txn->writers_size() == 0)
-        txns++;       
+      if(done_txn->writers_size() == 0 || rand() % done_txn->writers_size() == 0) {
+        txns++;  
+        if (done_txn->txn_id() % 1000 == 0) {
+          latencies.push_back((long)(GetTime() * 1000000) - done_txn->start_time());
+          //std::cout << "latency: " << (long)(GetTime() * 1000) - done_txn->start_time() << " ms\n";
+        }
+      }
 
       delete done_txn;
 
@@ -284,17 +290,26 @@ void* DeterministicScheduler::LockManagerThread(void* arg) {
     // Report throughput.
     if (GetTime() > time + 1) {
       double total_time = GetTime() - time;
+      sort(latencies.begin(), latencies.end());
       std::cout << "Completed " << (static_cast<double>(txns) / total_time)
                 << " txns/sec, "
                 //<< test<< " for drop speed , " 
                 << executing_txns << " executing, "
                 << pending_txns << " pending, random: " 
-                << random_variable << "\n" << std::flush;
+                << random_variable 
+                << "\n" << std::flush;
+
+      if (latencies.size() > 10) {
+           int i=(int)(latencies.size()/2);
+           std::cout << "latencies-size: " << latencies.size() << ", 50th latencies: " << latencies.at(i) << std::endl;
+      }
+
       // Reset txn count.
       time = GetTime();
       txns = 0;
       //test ++;
     }
+   
   }
   return NULL;
 }
