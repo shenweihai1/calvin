@@ -45,7 +45,7 @@ const char remote_exec[] = "ssh";
 // This must be used when ssh is run in the background.
 const char remote_opt1[] = "-nT";
 // remote_opt2 = address
-const char remote_opt3_fmt[] = "bash ~/calvin/init_zoo.sh; cd %s; export LD_LIBRARY_PATH=:/home/azureuser/calvin/ext/googletest/lib/.libs:/home/azureuser/calvin/ext/protobuf/src/.libs:/home/azureuser/calvin/ext/zeromq/src/.libs:/home/azureuser/calvin/ext/zookeeper/.libs;%s %d %s > ~/calvin/s.log 2>&1" ;
+const char remote_opt3_fmt[] = "bash ~/calvin/init_zoo.sh; cd %s; export LD_LIBRARY_PATH=:/home/rolis/calvin/ext/googletest/lib/.libs:/home/rolis/calvin/ext/protobuf/src/.libs:/home/rolis/calvin/ext/zeromq/src/.libs:/home/rolis/calvin/ext/zookeeper/.libs;%s %d %s > ~/calvin/s-%d.log 2>&1" ;
 const char remote_quite_opt3_fmt[] = "cd %s; %s %d %s > /dev/null 2>&1";
 const char remote_valgrind_opt3_fmt[] = "cd %s; valgrind %s %d %s";
 // sprintf(remote_opt3, remote_opt3_fmt,
@@ -233,7 +233,7 @@ void DeployOne(int nodeID,
              cwd, exec, nodeID, db_args);
   else
     snprintf(remote_opt3, sizeof(remote_opt3), remote_opt3_fmt,
-             cwd, exec, nodeID, db_args);
+             cwd, exec, nodeID, db_args, nodeID);
 
   // Black magic, don't touch (bug scw if this breaks).
   int pipefd[2];

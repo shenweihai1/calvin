@@ -16,7 +16,7 @@ using std::vector;
 using namespace std;
 
 Paxos::Paxos(const string& zookeeper_config_file, bool reader) {
-  //std::cout << "zookeeper_config_file: " << zookeeper_config_file << std::endl;
+  std::cout << "zookeeper_config_file: " << zookeeper_config_file << std::endl;
   ifstream in(zookeeper_config_file.c_str());
   string s, port, ip, connection_string, timeout;
   // Get the connection string(ip and port) from the config file.
@@ -46,7 +46,7 @@ Paxos::Paxos(const string& zookeeper_config_file, bool reader) {
   }
 
   // Connect to the zookeeper.
-  //std::cout << "connection_string: " << connection_string << std::endl;
+  std::cout << "connection_string: " << connection_string << std::endl;
   zh_ = zookeeper_init(connection_string.c_str(), NULL,
                        atoi(timeout.c_str()), 0, NULL, 0);
   if (zh_ == NULL) {
@@ -201,7 +201,7 @@ void Paxos::StartZookeeper(const string& zookeeper_config_file) {
   for (unsigned int i = 0; i< zookeepers.size(); i++) {
     // Generate the ssh command.
     string ssh_command = "ssh " + zookeepers[i] +
-                         " /home/azureuser/zookeeper-3.4.12/" +
+                         " /home/rolis/zookeeper-3.4.12/" +
                          "bin/zkServer.sh start > zookeeper_log &";
     // Run the ssh command.
     system(ssh_command.c_str());
@@ -232,13 +232,13 @@ void Paxos::StopZookeeper(const string& zookeeper_config_file) {
     }
   }
   ssh_command = "ssh " + zookeepers[0] +
-                " /home/azureuser/zookeeper-3.4.12/bin/zkCli.sh -server "
+                " /home/rolis/zookeeper-3.4.12/bin/zkCli.sh -server "
                 + zookeepers[0] + ":" + port + " rmr /root > zookeeper_log";
   system(ssh_command.c_str());
   sleep(2);
   for (unsigned int i = 0; i< zookeepers.size(); i++) {
     // Generate the ssh command.
-    ssh_command = "ssh " + zookeepers[i] + " /home/azureuser/zookeeper-3.4.12"
+    ssh_command = "ssh " + zookeepers[i] + " /home/rolis/zookeeper-3.4.12"
                   + "/bin/zkServer.sh stop > zookeeper_log &";
     system(ssh_command.c_str());
   }

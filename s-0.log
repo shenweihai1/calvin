@@ -1,0 +1,14 @@
+start the db
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 0, replica_id: 0, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 1, replica_id: 1, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 2, replica_id: 2, par_id: 0
+nodes size: 3
+ZooKeeper JMX enabled by default
+Using config: /home/rolis/zookeeper-3.4.12/bin/../conf/zoo.cfg
+System is going down. Unprivileged users are not permitted to log in anymore. For technical details, see pam_nologin(8).
+
+Connection closed by 10.1.0.7 port 22
+ZooKeeper JMX enabled by default
+Using config: /home/rolis/zookeeper-3.4.12/bin/../conf/zoo.cfg
+start zoo:XXXXXXXXXXXX
+Starting zookeeper servers.

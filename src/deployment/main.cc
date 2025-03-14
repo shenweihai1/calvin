@@ -21,7 +21,8 @@
 #include "sequencer/sequencer.h"
 #include "proto/tpcc_args.pb.h"
 
-#define HOT 10000
+#define HOT 100000
+
 
 map<Key, Key> latest_order_id_for_customer;
 map<Key, int> latest_order_id_for_district;

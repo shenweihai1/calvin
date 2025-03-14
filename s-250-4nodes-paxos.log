@@ -1,0 +1,111 @@
+start the db
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 0, replica_id: 0, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 1, replica_id: 0, par_id: 1
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 2, replica_id: 0, par_id: 2
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 3, replica_id: 0, par_id: 3
+nodes size: 4
+ZooKeeper JMX enabled by default
+Using config: /home/azureuser/zookeeper-3.4.12/bin/../conf/zoo.cfg
+ZooKeeper JMX enabled by default
+Using config: /home/azureuser/zookeeper-3.4.12/bin/../conf/zoo.cfg
+ZooKeeper JMX enabled by default
+Using config: /home/azureuser/zookeeper-3.4.12/bin/../conf/zoo.cfg
+start zoo:XXXXXXXXXXXX
+Starting zookeeper servers.
+using a simple in-memory map storage 
+start a new channel: sequencer
+complete a new channel: sequencer
+start a new channel: scheduler_
+XXXXXX: RunWriter
+XXXXXX: RunReader
+complete a new channel: scheduler_
+2022-02-26 20:20:10,128:30963(0x7f43df7fe700):ZOO_INFO@log_env@753: Client environment:zookeeper.version=zookeeper C client 3.4.12
+2022-02-26 20:20:10,128:30963(0x7f43dffff700):ZOO_INFO@log_env@753: Client environment:zookeeper.version=zookeeper C client 3.4.12
+2022-02-26 20:20:10,129:30963(0x7f43dffff700):ZOO_INFO@log_env@757: Client environment:host.name=rolis-ds-0
+2022-02-26 20:20:10,129:30963(0x7f43df7fe700):ZOO_INFO@log_env@757: Client environment:host.name=rolis-ds-0
+2022-02-26 20:20:10,129:30963(0x7f43df7fe700):ZOO_INFO@log_env@764: Client environment:os.name=Linux
+2022-02-26 20:20:10,129:30963(0x7f43df7fe700):ZOO_INFO@log_env@765: Client environment:os.arch=5.4.0-1070-azure
+2022-02-26 20:20:10,129:30963(0x7f43df7fe700):ZOO_INFO@log_env@766: Client environment:os.version=#73~18.04.1-Ubuntu SMP Wed Feb 9 15:36:45 UTC 2022
+2022-02-26 20:20:10,129:30963(0x7f43dffff700):ZOO_INFO@log_env@764: Client environment:os.name=Linux
+2022-02-26 20:20:10,129:30963(0x7f43dffff700):ZOO_INFO@log_env@765: Client environment:os.arch=5.4.0-1070-azure
+2022-02-26 20:20:10,129:30963(0x7f43dffff700):ZOO_INFO@log_env@766: Client environment:os.version=#73~18.04.1-Ubuntu SMP Wed Feb 9 15:36:45 UTC 2022
+2022-02-26 20:20:10,130:30963(0x7f43df7fe700):ZOO_INFO@log_env@774: Client environment:user.name=azureuser
+2022-02-26 20:20:10,130:30963(0x7f43dffff700):ZOO_INFO@log_env@774: Client environment:user.name=azureuser
+2022-02-26 20:20:10,130:30963(0x7f43df7fe700):ZOO_INFO@log_env@782: Client environment:user.home=/home/azureuser
+2022-02-26 20:20:10,130:30963(0x7f43df7fe700):ZOO_INFO@log_env@794: Client environment:user.dir=/home/azureuser/calvin
+2022-02-26 20:20:10,130:30963(0x7f43df7fe700):ZOO_INFO@zookeeper_init@827: Initiating client connection, host=10.1.0.7:2181 sessionTimeout=800000 watcher=(nil) sessionId=0 sessionPasswd=<null> context=(nil) flags=0
+2022-02-26 20:20:10,130:30963(0x7f43dffff700):ZOO_INFO@log_env@782: Client environment:user.home=/home/azureuser
+2022-02-26 20:20:10,130:30963(0x7f43dffff700):ZOO_INFO@log_env@794: Client environment:user.dir=/home/azureuser/calvin
+2022-02-26 20:20:10,130:30963(0x7f43dffff700):ZOO_INFO@zookeeper_init@827: Initiating client connection, host=10.1.0.7:2181 sessionTimeout=800000 watcher=(nil) sessionId=0 sessionPasswd=<null> context=(nil) flags=0
+2022-02-26 20:20:10,130:30963(0x7f43ddc2e700):ZOO_INFO@check_events@1764: initiated connection to server [10.1.0.7:2181]
+2022-02-26 20:20:10,130:30963(0x7f43de42f700):ZOO_INFO@check_events@1764: initiated connection to server [10.1.0.7:2181]
+2022-02-26 20:20:10,133:30963(0x7f43ddc2e700):ZOO_INFO@check_events@1811: session establishment complete on server [10.1.0.7:2181], sessionId=0x10000050a790062, negotiated timeout=40000
+2022-02-26 20:20:10,133:30963(0x7f43de42f700):ZOO_INFO@check_events@1811: session establishment complete on server [10.1.0.7:2181], sessionId=0x10000050a790063, negotiated timeout=40000
+Succeed in connecting to zookeeper.
+Succeed in connecting to zookeeper.
+Starting sequencer.SOneXXX: 1631425904
+Submitted 92750 txns in 371 batches,
+Completed 83447.1 txns/sec, 50 executing, 0 pending, random: 1631425904
+Submitted 99000 txns in 396 batches,
+Completed 80040.6 txns/sec, 200 executing, 0 pending, random: 1631425904
+Submitted 100250 txns in 401 batches,CCompleted 79741.2 txns/sec, 100 executing, 0 pending, random: 163142590SuSubmitted 99750 txns in 399 batchesCoCompleted 86682.5 txns/sec, 50 executing, 0 pending, random: 163142590SuSubmitted 99500 txns in 398 batchesCoCompleted 80016.5 txns/sec, 199 executing, 1 pending, random: 163142590SuSubmitted 95500 txns in 382 batchesCoCompleted 82725.5 txns/sec, 100 executing, 0 pending, random: 16314259SubSubmitted 104000 txns in 416 batchCompCompleted 82321.7 txns/sec, 128 executing, 0 pending, random: 1631425SubmSubmitted 98750 txns in 395 batcheComCompleted 81872.7 txns/sec, 101 executing, 0 pending, random: 16314259SubSubmitted 99750 txns in 399 batcheComCompleted 82950.5 txns/sec, 50 executing, 0 pending, random: 163142590SuSubmitted 99250 txns in 397 batchesCoCompleted 80865.7 txns/sec, 134 executing, 0 pending, random: 163142590SuSubmitted 100250 txns in 401 batcheComCompleted 79917.8 txns/sec, 200 executing, 0 pending, random: 16314259SubSubmitted 97250 txns in 389 batcheComCompleted 84727.1 txns/sec, 200 executing, 0 pending, random: 1631425SubmSubmitted 100500 txns in 402 batcComplCompleted 87466.5 txns/sec, 199 executing, 1 pending, random: 16314SubmitSubmitted 98000 txns in 392 batCompleCompleted 82996.2 txns/sec, 100 executing, 0 pending, random: 1631SubmittSubmitted 100000 txns in 400 batches,
+Completed 75417.6 txns/sec, 32 executing, 0 pending, random: 163SubmitteSubmitted 99250 txns in 397 batches,
+Completed 82812.8 txns/sec, 100 executing, 0 pending, random: 163SubmitteSubmitted 97750 txns in 391 batches,
+Completed 78509.6 txns/sec, 190 executing, 0 pending, random: 1Submitted Submitted 100000 txns in 400 batches,
+Completed 77238.8 txns/sec, 1 executing, 0 pending, random: 16SubmittedSubmitted 101250 txns in 405 batches,
+Completed 76253.8 txns/sec, 197 executing, 0 pending, random: 1Submitted Submitted 96250 txns in 385 batches,
+Completed 75697.6 txns/sec, 200 executing, 0 pending, random: 1Submitted Submitted 99750 txns in 399 batches,
+Completed 76424.7 txns/sec, 24 executing, 1 pending, random: 16SubmittedSubmitted 98750 txns in 395 batches,
+Completed 77196.6 txns/sec, 78 executing, 0 pending, random: 163SubmitteSubmitted 98750 txns in 395 batches,
+Completed 78866.9 txns/sec, 200 executing, 0 pending, random: 16SubmittedSubmitted 101000 txns in 404 batches,
+Completed 80567.7 txns/sec, 132 executing, 0 pending, random: 1Submitted Submitted 99750 txns in 399 batches,
+Completed 80617.8 txns/sec, 14 executing, 0 pending, random: 16SubmittedSubmitted 100750 txns in 403 batches,
+Completed 77755.5 txns/sec, 50 executing, 1 pending, random: Submitted 9Submitted 98750 txns in 395 batches,
+Completed 78973.6 txns/sec, 77 executing, 0 pending, random: 1Submitted Submitted 99250 txns in 397 batches,
+Completed 82539 txns/sec, 200 executing, 0 pending, random: 16SubmittedSubmitted 99501 txns in 399 batches,
+Completed 81138.5 txns/sec, 61 executing, 0 pending, random: 163SubmitteSubmitted 61500 txns in 246 batches,
+Completed 84795.1 txns/sec, 50 executing, 0 pending, random: 163CompleteCompleted 117855 txns/sec, 145 executing, 0 pending, random: 1631425904
+2022-02-26 20:20:41,665:30963(0x7f43dffff700):ZOO_INFO@zookeeper_close@2564: Closing zookeeper sessionId=0x10000050a790062 to [10.1.0.7:2181]
+
+2022-02-26 20:20:41,700:30963(0x7f43df7fe700):ZOO_INFO@zookeeper_close@2564: Closing zookeeper sessionId=0x10000050a790063 to [10.1.0.7CompleteCompleted 12195 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 163CompleteCompleted 0 txns/sec, 0 executing, 0 pending, random: 1631425904
+ txns/sec, 0 executing, 0 pending, random: 1837577522
+.0.7:2181]
+
+2022-02-26 20:20:40,318:30245(0x7f46e490d700):ZOO_INFO@zookeeper_close@2564: Closing zookeeper sessionId=0x10000050a79005d to [10.1.0.7:2181]
+
+Completed 7176.99 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1314493177
+latencies-size: 9896, 50th latencies: 2323191

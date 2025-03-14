@@ -1,0 +1,31 @@
+start the db
+nodes size: 3
+start a new channel: sequencer
+complete a new channel: sequencer
+start a new channel: scheduler_
+complete a new channel: scheduler_
+Starting sequencer.
+Completed 27823.8 txns/sec, 174 executing, 2 pending
+Completed 49937.3 txns/sec, 100 executing, 0 pending
+Completed 49565.8 txns/sec, 98 executing, 2 pending
+Completed 50173.6 txns/sec, 26 executing, 0 pending
+Completed 49374.9 txns/sec, 50 executing, 1 pending
+Completed 49216.9 txns/sec, 99 executing, 1 pending
+Completed 49354 txns/sec, 196 executing, 4 pending
+Completed 49186.7 txns/sec, 99 executing, 1 pending
+Completed 47871.7 txns/sec, 127 executing, 1 pending
+Completed 48339.7 txns/sec, 185 executing, 3 pending
+Completed 48374.4 txns/sec, 99 executing, 1 pending
+Completed 48383.2 txns/sec, 196 executing, 4 pending
+Completed 49570.5 txns/sec, 196 executing, 4 pending
+Completed 49572.6 txns/sec, 99 executing, 1 pending
+[libprotobuf ERROR google/protobuf/message_lite.cc:121] Can't parse message of type "MessageProto" because it is missing required fields: destination_node, destination_channel, type
+Completed 49149.6 txns/sec, 50 executing, 0 pending
+Completed 49753.6 txns/sec, 96 executing, 0 pending
+Completed 49747.5 txns/sec, 145 executing, 3 pending
+Completed 48886.8 txns/sec, 60 executing, 1 pending
+Completed 49427.9 txns/sec, 33 executing, 0 pending
+Completed 49455.6 txns/sec, 172 executing, 5 pending
+Completed 48879.9 txns/sec, 97 executing, 0 pending
+Completed 49402.9 txns/sec, 92 executing, 2 pending
+Completed 49446.1 txns/sec, 99 executing, 1 pending

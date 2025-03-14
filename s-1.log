@@ -1,0 +1,10 @@
+start the db
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 0, replica_id: 0, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 1, replica_id: 1, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 2, replica_id: 2, par_id: 0
+nodes size: 3
+Host key verification failed.
+Host key verification failed.
+Host key verification failed.
+start zoo:XXXXXXXXXXXX
+Starting zookeeper servers.

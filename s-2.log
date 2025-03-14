@@ -1,0 +1,390 @@
+start the db
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 0, replica_id: 0, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 1, replica_id: 1, par_id: 0
+XXXXXXXXXXXXXXXXXXXXXXXXX: node_id: 2, replica_id: 2, par_id: 0
+nodes size: 3
+Host key verification failed.
+Host key verification failed.
+Host key verification failed.
+start zoo:XXXXXXXXXXXX
+Starting zookeeper servers.
+using a simple in-memory map storage 
+start a new channel: sequencer
+complete a new channel: sequencer
+start a new channel: scheduler_
+XXXXXX: RunWriter
+XXXXXX: RunReader
+complete a new channel: scheduler_
+zookeeper_config_file: /home/rolis/calvin/src/paxos/zookeeper.conf
+zookeeper_config_file: /home/rolis/calvin/src/paxos/zookeeper.conf
+connection_string: 10.1.0.4:2181
+connection_string: 10.1.0.4:2181
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@753: Client environment:zookeeper.version=zookeeper C client 3.4.12
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@753: Client environment:zookeeper.version=zookeeper C client 3.4.12
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@757: Client environment:host.name=warbler-13
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@757: Client environment:host.name=warbler-13
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@764: Client environment:os.name=Linux
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@765: Client environment:os.arch=5.15.0-1079-azure
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@766: Client environment:os.version=#88~20.04.1-Ubuntu SMP Fri Jan 17 18:28:29 UTC 2025
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@764: Client environment:os.name=Linux
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@765: Client environment:os.arch=5.15.0-1079-azure
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@766: Client environment:os.version=#88~20.04.1-Ubuntu SMP Fri Jan 17 18:28:29 UTC 2025
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@774: Client environment:user.name=rolis
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@774: Client environment:user.name=rolis
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@782: Client environment:user.home=/home/rolis
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@log_env@794: Client environment:user.dir=/home/rolis/calvin
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@782: Client environment:user.home=/home/rolis
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@log_env@794: Client environment:user.dir=/home/rolis/calvin
+2025-03-11 03:30:28,368:19533(0x7fe1e73f6700):ZOO_INFO@zookeeper_init@818: Initiating client connection, host=10.1.0.4:2181 sessionTimeout=800000 watcher=(nil) sessionId=0 sessionPasswd=<null> context=(nil) flags=0
+2025-03-11 03:30:28,368:19533(0x7fe1e6bf5700):ZOO_INFO@zookeeper_init@818: Initiating client connection, host=10.1.0.4:2181 sessionTimeout=800000 watcher=(nil) sessionId=0 sessionPasswd=<null> context=(nil) flags=0
+2025-03-11 03:30:28,421:19533(0x7fe1e5451700):ZOO_INFO@check_events@1763: initiated connection to server [10.1.0.4:2181]
+2025-03-11 03:30:28,425:19533(0x7fe1e5c52700):ZOO_INFO@check_events@1763: initiated connection to server [10.1.0.4:2181]
+2025-03-11 03:30:28,522:19533(0x7fe1e5451700):ZOO_INFO@check_events@1809: session establishment complete on server [10.1.0.4:2181], sessionId=0x100001fc539001b, negotiated timeout=40000
+2025-03-11 03:30:28,526:19533(0x7fe1e5c52700):ZOO_INFO@check_events@1809: session establishment complete on server [10.1.0.4:2181], sessionId=0x100001fc539001c, negotiated timeout=40000
+Succeed in connecting to zookeeper.
+Succeed in connecting to zookeeper.
+Starting sequencer.
+OneXXX: 1250701941
+Submitted 2510 txns in 251 batches,
+Completed 2820 txns/sec, 0 executing, 0 pending, random: 1250701941
+Completed 2730 txns/sec, 0 executing, 0 pending, random: 1250701941
+Submitted 3120 txns in 312 batches,
+Completed 3210 txns/sec, 0 executing, 0 pending, random: 1250701941
+Submitted 3180 txns in 318 batches,
+Completed 3060 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 12, 50th latencies: 233102
+Submitted 3120 txns in 312 batches,
+Completed 2730 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 15, 50th latencies: 213820
+Submitted 3150 txns in 315 batches,
+Completed 3210 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 18, 50th latencies: 233102
+Submitted 3150 txns in 315 batches,
+Completed 2910 txns/sec, 10 executing, 0 pending, random: 1250701941
+latencies-size: 21, 50th latencies: 213820
+Submitted 3150 txns in 315 batches,
+Completed 2880 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 24, 50th latencies: 214220
+Submitted 3040 txns in 304 batches,
+Completed 3210 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 27, 50th latencies: 214297
+Submitted 3140 txns in 314 batches,
+Completed 2860 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 30, 50th latencies: 214220
+Submitted 3160 txns in 316 batches,
+Completed 2930 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 33, 50th latencies: 214297
+Submitted 3140 txns in 314 batches,
+Completed 3210 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 36, 50th latencies: 231110
+Submitted 3150 txns in 315 batches,
+Completed 2760 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 39, 50th latencies: 214297
+Submitted 3150 txns in 315 batches,
+Completed 3060 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 42, 50th latencies: 231110
+Submitted 3140 txns in 314 batches,
+Completed 3150 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 45, 50th latencies: 231189
+Submitted 3140 txns in 314 batches,
+Completed 2800 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 48, 50th latencies: 231110
+Submitted 3150 txns in 315 batches,
+Completed 3050 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 51, 50th latencies: 231189
+Submitted 3060 txns in 306 batches,
+Completed 3240 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 54, 50th latencies: 231803
+Submitted 3130 txns in 313 batches,
+Completed 3060 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 57, 50th latencies: 231189
+Submitted 3150 txns in 315 batches,
+Completed 2850 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 60, 50th latencies: 231803
+Submitted 3150 txns in 315 batches,
+Completed 3090 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 63, 50th latencies: 231924
+Submitted 3140 txns in 314 batches,
+Completed 3060 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 66, 50th latencies: 231803
+Submitted 3150 txns in 315 batches,
+Completed 2880 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 69, 50th latencies: 231924
+Submitted 3150 txns in 315 batches,
+Completed 3060 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Submitted 2530 txns in 253 batches,
+Completed 480 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Submitted 1930 txns in 193 batches,
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Submitted 2110 txns in 211 batches,
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Submitted 2170 txns in 217 batches,
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Submitted 1520 txns in 152 batches,
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+2025-03-11 03:30:59,676:19533(0x7fe1e73f6700):ZOO_INFO@zookeeper_close@2563: Closing zookeeper sessionId=0x100001fc539001c to [10.1.0.4:2181]
+
+2025-03-11 03:30:59,728:19533(0x7fe1e6bf5700):ZOO_INFO@zookeeper_close@2563: Closing zookeeper sessionId=0x100001fc539001b to [10.1.0.4:2181]
+
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102
+Completed 0 txns/sec, 0 executing, 0 pending, random: 1250701941
+latencies-size: 72, 50th latencies: 233102

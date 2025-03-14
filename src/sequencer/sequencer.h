@@ -18,7 +18,7 @@
 // 200 => 200 * 100 
 // 1200 => 1200 * 100
 // 1336 54
-#define MAX_BATCH_SIZE 200
+#define MAX_BATCH_SIZE 100 
 
 #define SAMPLES 100000
 #define SAMPLE_RATE 999

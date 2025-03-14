@@ -17,7 +17,7 @@ using std::map;
 using std::string;
 
 // The path of zookeeper config file
-#define ZOOKEEPER_CONF "/home/azureuser/calvin/src/paxos/zookeeper.conf"
+#define ZOOKEEPER_CONF "/home/rolis/calvin/src/paxos/zookeeper.conf"
 
 // Number of concurrently get batches from the zookeeper servers
 // at any given time.
