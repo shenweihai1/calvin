@@ -300,8 +300,14 @@ void* DeterministicScheduler::LockManagerThread(void* arg) {
                 << "\n" << std::flush;
 
       if (latencies.size() > 10) {
-           int i=(int)(latencies.size()/2);
-           std::cout << "latencies-size: " << latencies.size() << ", 50th latencies: " << latencies.at(i) << std::endl;
+	    int valid_cnt = latencies.size();
+            std::cout << "10% latency: " << latencies[(int)(valid_cnt *0.1)]  << std::endl;
+            std::cout << "50% latency: " << latencies[(int)(valid_cnt *0.5)]  << std::endl;
+            std::cout << "90% latency: " << latencies[(int)(valid_cnt *0.9)]  << std::endl;
+            std::cout << "95% latency: " << latencies[(int)(valid_cnt *0.95)]  << std::endl;
+            std::cout << "99% latency: " << latencies[(int)(valid_cnt *0.99)]  << std::endl;
+           //int i=(int)(latencies.size()/2);
+           //std::cout << "latencies-size: " << latencies.size() << ", 50th latencies: " << latencies.at(i) << std::endl;
       }
 
       // Reset txn count.
